@@ -18,16 +18,16 @@
 在这个repo中，你可以下载[index.html](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.html "index.html")文件来获得我汇报用的PPT。这个PPT是使用[Rtudio](https://www.rstudio.com/)公司开发的[Quarto](https://quarto.org/)软件制作的。你可以查看[这个网页](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide)来了解更多用[Quarto](https://quarto.org/)制作PPT的内容。
 
 ## 如何重现你的PPT？
-你可以直接下载这个repo，然后在Rstudio中运行[`index.qmd`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件来重现我的PPT。
+你可以直接下载这个repo，然后在Rstudio中运行[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件来重现我的PPT。
 
-你也可以只下载[`index.qmd`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")，[`theme`](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/theme)和[`examples`](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/examples)文件。然后在Rstudio中运行[`index.qmd`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件。
+你也可以只下载[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")，[theme](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/theme)和[examples](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/examples)文件。然后在Rstudio中运行[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件。
 
-[`mini section`](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/mini%20section)文件中分别储存着本次PPT所展示的三部分内容，如果你只对其中某一部分感兴趣，可以只下载某一部分。这会比直接运行[`index.qmd`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")快。
-注意：[`mini section`](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/mini%20section)中文件所在目录要和[`index.qmd`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件所在目录相同，因为`qmd`文件运行时，默认的目录为`qmd`文件所在目录，不是`R project`所在目录。
+[mini section](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/mini%20section)文件中分别储存着本次PPT所展示的三部分内容，如果你只对其中某一部分感兴趣，可以只下载某一部分。这会比直接运行[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")快。
+注意：[mini section](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/mini%20section)中文件所在目录要和[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件所在目录相同，因为`qmd`文件运行时，默认的目录为`qmd`文件所在目录，不是`R project`所在目录。
 
 ## 如何使用`ggfp`包来绘制forestplot？
 你可以访问我的[另一个repo](https://github.com/lizhiwei1994/ggfp)来了解`ggfp`包的更多内容。不过需要注意的是，我写`ggfp`包，主要是为了自己绘图的时候方便，所以我把一些我常用的设置都在`gg_fp()`函数的内部设置好了，可能不符合其他人用的要求，而且现阶段只能支持分面绘图（`facet`）。`gg_fp()`其实和直接用`ggpplot2`包绘图没有太大区别，你可以直接查看[`gg_fp()`](https://github.com/lizhiwei1994/ggfp/blob/main/R/gg_fp.r)的源代码。我还是建议大家直接使用`ggplot2`绘图。
 
 ## 如何了解更多`patchwork`包的内容？
-在[`reference`](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/reference)文件下有一个[`Patchwork_Layouts.html`](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/reference/Patchwork_Layouts.html)是我翻译的中文版`patchwork`教程。
+在[reference](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/reference)文件下有一个[Patchwork_Layouts.html](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/reference/Patchwork_Layouts.html)是我翻译的中文版`patchwork`包的一部分教程。
 你也可以从[R官网](https://cran.r-project.org/)查看`patchwork`包的[官方教程](https://cran.r-project.org/web/packages/patchwork/index.html)。
