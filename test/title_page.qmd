@@ -1,0 +1,40 @@
+---
+format: 
+  revealjs:
+    theme: [default, theme/custom.scss, theme/q-theme.scss]
+    slide-number: c/t
+    logo: "images/logo_ccmu.png"
+    footer: "[https://github.com/lizhiwei1994/How-to-plot-in-R](https://github.com/lizhiwei1994/How-to-plot-in-R)"
+    incremental: true
+    highlight-style: a11y
+    width: 1920
+    height: 1080
+    chalkboard: true
+editor: visual
+execute: 
+  echo: true
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>How to plot general scientific figures in `R`</h1>
+
+
+<hr>
+
+<h3>Li Zhiwei <br>Capital Medical University</h3>
+
+<h3>2022-09-19</h3>
+
+<br>
+
+<h3>
+
+`r fontawesome::fa("github", "black")`   [github.com/lizhiwei1994/How-to-plot-in-R](https://github.com/lizhiwei1994/How-to-plot-in-R)
+
+`r fontawesome::fa("fas fa-mail-bulk", "black")`   [lizhiwei@ccmu.edu.cn](lizhiwei@ccmu.edu.cn)
+
+
+
