@@ -1,0 +1,32 @@
+{
+    "id": "65793652",
+    "path": "E:/A/project/How to plot in R/index.qmd",
+    "project_path": "index.qmd",
+    "type": "quarto_markdown",
+    "hash": "216093415",
+    "contents": "",
+    "dirty": false,
+    "created": 1661928294704.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "8,112",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "2:50.400001525878906"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1661928333,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1661928333937,
+    "read_only": false,
+    "read_only_alternatives": []
+}
