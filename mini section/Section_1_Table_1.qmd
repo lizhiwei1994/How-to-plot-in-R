@@ -1,0 +1,171 @@
+---
+title: "Table1"
+author: "Li Zhiwei"
+format: 
+  revealjs:
+    theme: [default, theme/custom.scss, theme/q-theme.scss]
+    slide-number: c/t
+    logo: "images/logo_ccmu.png"
+    footer: "[https://jthomasmock.github.io/arrow-dplyr](https://jthomasmock.github.io/arrow-dplyr)"
+    incremental: true
+    highlight-style: a11y
+    width: 1920
+    height: 1080
+editor: visual
+execute: 
+  echo: true
+---
+
+## What is `Table-1`?
+
+::: columns
+::: {.column width="35%"}
+It is standard practice in epidemiology and related fields that the first table of any journal article, referred to as “Table 1“, is a table that presents descriptive statistics of **baseline characteristics** of the study population **stratified by exposure**.
+:::
+
+::: {.column width="31%"}
+![](images/paper_table1.png)
+:::
+
+::: {.column width="31%"}
+![](images/paper_table2.png)
+:::
+:::
+
+## Creat table 1 using `tableone` package
+
+```{r}
+#| warning: false
+#| message: false
+#| code-line-numbers: "1|2"
+library(tableone) # main package
+dat = read.csv('examples/data/table1_data.csv')
+```
+
+. . .
+
+![](images/data_tableone.png)
+
+## Creat table 1 using `tableone` package
+
+```{r}
+#| code-line-numbers: "|1-2|3|4-7|8-9|10"
+#| eval: false
+listVars <- c("Age", "Gender", "Cholesterol", "SystolicBP", 
+              "BMI", "Smoking", "Education")
+catVars <- c("Smoking","Education")
+table1 <- CreateTableOne(vars = listVars, 
+                         data = dat, 
+                         factorVars = catVars, 
+                         strata = c("Gender"))
+a <- print(table1, quote = TRUE, noSpaces = TRUE)
+a <- as.data.frame(a)
+write.csv(a, 'result_tableone.csv')
+```
+
+. . .
+
+![](images/result_tableone.png)
+
+## Creat table 1 using `arsenal` package
+
+```{r}
+#| code-overflow: wrap
+#| output-location: fragment
+#| code-line-numbers: "1|2-3|4-5"
+library(arsenal)
+tab1 <- tableby(Gender ~ Age + Cholesterol + SystolicBP + 
+                  BMI + Smoking+ Education, data = dat)
+sum_tab1 <- summary(tab1, text=TRUE)
+sum_tab1
+```
+
+## Creat table 1 using `arsenal` package
+
+``` r
+sum_tab1_out <- summary(tab1, text=NULL) %>% as.data.frame()
+write.csv(sum_tab1_out, 'code/table1/result_arsenal_table1.csv', row.names = F)
+```
+
+![](images/result_tableby.png)
+
+## Creat table 1 using `arsenal` package
+
+#### tableby.control() function
+
+Control test and summary settings for the *tableby()* function.
+
+``` r
+tableby.control(
+  test = TRUE,
+  total = TRUE,
+  total.pos = c("after", "before"),
+  test.pname = NULL,
+  numeric.simplify = FALSE,
+  cat.simplify = FALSE,
+  cat.droplevels = FALSE,
+  ordered.simplify = FALSE,
+  date.simplify = FALSE,
+  numeric.test = "anova",
+  cat.test = "chisq",
+  ordered.test = "trend",
+  surv.test = "logrank",
+  date.test = "kwt",
+  selectall.test = "notest",
+  test.always = FALSE,
+  numeric.stats = c("Nmiss", "meansd", "range"),
+  cat.stats = c("Nmiss", "countpct"),
+  ordered.stats = c("Nmiss", "countpct"),
+  surv.stats = c("Nmiss", "Nevents", "medSurv"),
+  date.stats = c("Nmiss", "median", "range"),
+  selectall.stats = c("Nmiss", "countpct"),
+  stats.labels = list(),
+  digits = 3L,
+  digits.count = 0L,
+  digits.pct = 1L,
+  digits.p = 3L,
+  format.p = TRUE,
+  digits.n = 0L,
+  conf.level = 0.95,
+  wilcox.correct = FALSE,
+  wilcox.exact = NULL,
+  chisq.correct = FALSE,
+  simulate.p.value = FALSE,
+  B = 2000,
+  times = 1:5,
+  ...
+)
+```
+
+## Creat table 1 using `arsenal` package
+
+```{r}
+#| code-line-numbers: "|1|4"
+#| eval: false
+mycontrols  <- tableby.control(numeric.stats = c("meansd"))
+tab1 <- tableby(Gender ~ Age + Cholesterol + SystolicBP + 
+                  BMI + Smoking+ Education, data = dat,
+                  control = mycontrols)
+```
+
+. . .
+
+![](images/result_tableby_control.png){width="60%"}
+
+## Application `tableby()` in our paper
+
+``` r
+tab1 <- tableby(disease_type_en~sex+age_group2+continent+defi_year,data=data2)
+sum_tab1_out <- summary(tab1, text=NULL) %>% as.data.frame()
+writexl::write_xlsx(sum_tab1_out, 'table_1.new.xlsx')
+```
+
+![](images/application_table1.png){width="1400" height="800"}
+
+## Application `tableby()` in our paper
+
+![](images/application_table1-2.png)
+
+## Resources
+
+<br> <br> 1. [Using the table1 Package to Create HTML Tables of Descriptive Statistics](https://cran.r-project.org/web/packages/table1/vignettes/table1-examples.html) <br> <br> <br> 2. [Introduction to tableone](https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html) <br> <br> <br> 3. [The tableby function](https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html)

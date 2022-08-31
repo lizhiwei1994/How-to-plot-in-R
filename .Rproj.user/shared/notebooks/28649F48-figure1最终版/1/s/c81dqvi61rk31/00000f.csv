@@ -1,0 +1,3 @@
+"0","library(ggplot2)"
+"0","dat1 = readRDS(""examples/data/figure1_A.Rdata"")"
+"0","as.data.frame(dat1)"

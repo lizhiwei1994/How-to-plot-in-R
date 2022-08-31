@@ -1,0 +1,17 @@
+Disease,group,PC,PC_95_LOW,PC_95_UP
+Arrhythmia,    <65,-2.14,-4.02,-0.27
+Arrhythmia,    >=65,-0.31,-1.8,1.19
+Arrhythmia,    Male,-1.22,-3.1,0.65
+Arrhythmia,    Female,-0.55,-2.23,1.12
+Cerebrovascular,    <65,-0.11,-0.62,0.4
+Cerebrovascular,    >=65,-0.05,-0.51,0.41
+Cerebrovascular,    Male,0.12,-0.36,0.59
+Cerebrovascular,    Female,-0.3,-0.86,0.25
+CHD,    <65,1.67,0.68,2.67
+CHD,    >=65,0.84,0.09,1.58
+CHD,    Male,1.28,0.42,2.15
+CHD,    Female,1.01,0.18,1.83
+Heart failure,    <65,1.23,-2.65,5.11
+Heart failure,    >=65,-0.67,-2.65,1.32
+Heart failure,    Male,0.54,-1.95,3.03
+Heart failure,    Female,-1.09,-3.6,1.42

@@ -1,0 +1,310 @@
+---
+title: "A combined plot"
+author: "Li Zhiwei"
+format: 
+  revealjs:
+    theme: [default, theme/custom.scss, theme/q-theme.scss]
+    slide-number: c/t
+    logo: "images/logo_ccmu.png"
+    footer: "[https://jthomasmock.github.io/arrow-dplyr](https://jthomasmock.github.io/arrow-dplyr)"
+    incremental: true
+    highlight-style: a11y
+    width: 1920
+    height: 1080
+editor: visual
+execute: 
+  echo: true
+project:
+  execute-dir: project
+---
+
+## A `combined plot` in our published paper
+
+![](images/Total.png)
+
+## `Area Plot` (Part A)
+
+::: columns
+::: {.column width="35%"}
+An area chart is a graph that combines a line chart and a bar chart to show changes in quantities over time. However, the area below the line is colored in or shaded. Then, other values are plotted below the lines and shaded in a different color, resulting in a chart with layers.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="62%"}
+![](images/A.png)
+:::
+:::
+
+## Step 0: `Data Preparation`
+
+```{r Part A data}
+library(ggplot2)
+dat1 = readRDS("examples/data/figure1_A.Rdata")
+as.data.frame(dat1)
+```
+
+## Step 1: `Mapping data`
+
+```{=html}
+<style>
+.fourlinesish {
+  height: 12.5em;
+}
+</style>
+```
+```{r Part A Step 1}
+#| class-source: fourlinesish
+#| code-line-numbers: "1"
+(p_A = ggplot(dat1, aes(x = defi_year, y = Incidence, fill = disease_type_en)))
+```
+
+## Step 2: `Add geom_area`
+
+```{r Part A Step 2}
+#| class-source: fourlinesish
+#| code-line-numbers: "2"
+(p_A = ggplot(dat1, aes(x = defi_year, y = Incidence, fill = disease_type_en)) +
+geom_area())
+```
+
+## Step 3: `Set color`
+
+```{r Part A Step 3}
+#| class-source: fourlinesish
+#| code-line-numbers: "3"
+(p_A = ggplot(dat1, aes(x = defi_year, y = Incidence, fill = disease_type_en)) +
+geom_area() + 
+scale_fill_manual(values =c('#D30f8C', '#6B58A6','#FCAF17',  '#0871B9', '#00B3B1')))
+```
+
+## Step 4: `Set theme`
+
+```{r Part A Step 4}
+#| class-source: fourlinesish
+#| code-line-numbers: "4-12"
+(p_A = ggplot(dat1, aes(x = defi_year, y = Incidence, fill = disease_type_en)) +
+geom_area() + 
+scale_fill_manual(values =c('#D30f8C', '#6B58A6','#FCAF17',  '#0871B9', '#00B3B1'))  +
+scale_x_continuous(expand = c(0, 0)) +
+scale_y_continuous(expand = c(0, 0)) +
+labs(x = 'Year', fill = 'Disease Type', tag = '(A)')+
+theme_classic() +
+theme(legend.position = 'top')+
+guides(fill=guide_legend(ncol=3))+
+theme(axis.text.x = element_text(size = 12, hjust = 0.7),axis.text.y = element_text(size = 12)))
+```
+
+## `Heatmap` (Part B)
+
+::: columns
+::: {.column width="35%"}
+A heatmap (or heat map) is a data visualization technique that shows magnitude of a phenomenon as color in two dimensions. The variation in color may be by hue or intensity, giving obvious visual cues to the reader about how the phenomenon is clustered or varies over space.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="62%"}
+![](images/B.png)
+:::
+:::
+
+## Step 0: `Data Preparation`
+
+```{r Part B data}
+library(ggplot2)
+dat2 = readRDS("examples/data/figure1_B.Rdata")
+as.data.frame(dat2)
+```
+
+## Step 1: `Mapping data`
+
+```{r Part B color vector}
+#| include: false
+dis_color = c("#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", 
+"#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", 
+"#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", "#D30f8C", 
+"#D30f8C", "#D30f8C", "#D30f8C", "#6B58A6", "#6B58A6", "#6B58A6", 
+"#6B58A6", "#6B58A6", "#6B58A6", "#6B58A6", "#6B58A6", "#6B58A6", 
+"#6B58A6", "#6B58A6", "#6B58A6", "#FCAF17", "#FCAF17", "#FCAF17", 
+"#FCAF17", "#FCAF17", "#FCAF17", "#FCAF17", "#FCAF17", "#FCAF17", 
+"#FCAF17", "#FCAF17", "#0871B9", "#0871B9", "#0871B9", "#0871B9", 
+"#0871B9", "#0871B9", "#0871B9", "#00B3B1", "#00B3B1", "#00B3B1", 
+"#00B3B1", "#00B3B1", "#00B3B1", "#00B3B1")
+```
+
+```{r Part B Step 1}
+#| code-line-numbers: "1"
+#| class-source: fourlinesish
+(p_B = ggplot(dat2,aes(y = label, x = year_month, fill = Incidence2))) 
+```
+
+## Step 2: `Add geom_tile`
+
+```{r Part B Step 2}
+#| code-line-numbers: "2"
+#| class-source: fourlinesish
+(p_B = ggplot(dat2,aes(y = label, x = year_month, fill = Incidence2)) +
+geom_tile()) 
+```
+
+## Step 3: `Set color`
+
+```{r Part B Step 3}
+#| code-line-numbers: "3"
+#| class-source: fourlinesish
+(p_B = ggplot(dat2,aes(y = label, x = year_month, fill = Incidence2)) +
+geom_tile() + 
+scale_fill_gradient(high = '#FF0000', low = 'white', limits = c(0, 1))) 
+```
+
+## Step 4: `Set theme`
+
+```{r Part B Step 4}
+#| code-line-numbers: "4-12"
+#| class-source: fourlinesish
+(p_B = ggplot(dat2,aes(y = label, x = year_month, fill = Incidence2)) +
+geom_tile() + 
+scale_fill_gradient(high = '#FF0000', low = 'white', limits = c(0, 1))+
+labs(fill = 'Standarded Incidence', y = 'Disease name', x = 'Year', tag = "(B)") +
+theme(axis.text.x = element_text(angle = 0, vjust = 0.3, hjust = 0.1),axis.text.y = element_text(color = rev(dis_color), size = 12-4)) +
+geom_vline(xintercept = seq(from = 12.5, length.out = 4, by = 12), linetype = 'dashed') +
+theme(axis.line = element_line(linetype = 'solid'),panel.border = element_rect(color = 'grey', fill = NA), axis.ticks.x = element_blank(),axis.text.x = element_text(color = 'black'))+
+scale_x_discrete(labels =c(rep('',5),  2014,rep('',11), 2015, rep('',11), 2016, rep('',11), 2017, rep('',11), 2018, rep('',6))) +
+theme(legend.position = 'top') +
+theme(axis.title = element_text(size = 12),axis.text.x = element_text(size = 12))) 
+```
+
+## `Radial heatmap` (Part C)
+
+A radial heatmap is a more complex form of data visualization that is essentially **a simple heatmap rolled into a ball**. Therefore, a radial heatmap can warp both space and time to aid in the expedited **discovery of periodic patterns** and trends in time series data and other cyclic variables.
+
+![](images/C.png)
+
+## Step 0: `Data Preparation`
+
+```{r Part C data}
+library(ggplot2)
+dat3 = readRDS("examples/data/figure1_C.Rdata")
+as.data.frame(dat3)
+```
+
+## Step 1: `Mapping data`
+
+```{r Part C colormap}
+#| include: false
+colormap=c("#FFFFD9", "#EFF8B5", "#CFECB3", "#97D6B8", "#5CC0C0", "#30A5C2", 
+"#1E80B8", "#2254A3", "#21318D", "#081D58")
+```
+
+```{r Part C Step 1}
+#| code-line-numbers: "1"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)))
+```
+
+## Step 2: `Add geom_tile`
+
+```{r Part C Step 2}
+#| code-line-numbers: "2"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)) +
+geom_tile(color = 'black'))
+```
+
+## Step 3: `Facet plot`
+
+```{r Part C Step 3}
+#| code-line-numbers: "3"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)) +
+geom_tile(color = 'black') + 
+facet_wrap(vars(disease_type_en), nrow = 1, ncol = 5))
+```
+
+## Step 4: `Change coordinate system`
+
+```{r Part C Step 4}
+#| code-line-numbers: "4"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)) +
+geom_tile(color = 'black') + 
+facet_wrap(vars(disease_type_en), nrow = 1, ncol = 5)+
+coord_polar())
+```
+
+## Step 5: `Set color`
+
+```{r Part C Step 5}
+#| code-line-numbers: "5-13"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)) +
+geom_tile(color = 'black') + 
+facet_wrap(vars(disease_type_en), nrow = 1, ncol = 5)+
+coord_polar()+
+scale_fill_gradientn(colours=colormap)) 
+```
+
+## Step 6: `Set theme`
+
+```{r Part C Step 6}
+#| code-line-numbers: "6-13"
+#| class-source: fourlinesish
+(p_C = ggplot(dat3,aes(x = defi_month, y = defi_year, fill = Incidence2)) +
+geom_tile(color = 'black') + 
+facet_wrap(vars(disease_type_en), nrow = 1, ncol = 5)+
+coord_polar()+
+scale_fill_gradientn(colours=colormap) +
+labs(tag = '(C)', fill = 'Standarded Incidence', x = 'Month', y = "Year") +
+scale_x_continuous( breaks=seq(from = 1, to = 12, length.out = 12)) +
+theme_classic()+
+theme(plot.margin=unit(c(-4,0.5,-4,-0), "cm")) +
+theme(legend.position = 'bottom') +
+theme(axis.text = element_text(size = 12),axis.title = element_text(size = 12),strip.text = element_text(size = 12)))
+```
+
+## Combine multiple figures using [`patchwork` package](https://quarto.org)
+
+```{r Combine figure, fig.dim=c(16,9)}
+#| output-location: fragment
+library(patchwork)
+(combined_plot = (p_A+p_B)/p_C)
+```
+
+## Plots in our papers created in `R`
+
+![](images/image_ppt3.png)
+
+## Resources
+
+::: columns
+::: {.column width="50%"}
+1.[r graph gallery](https://www.r-graph-gallery.com/)
+
+[![](images/r-g.png)](https://www.r-graph-gallery.com/)
+:::
+
+::: {.column width="50%"}
+2.[r charts](https://r-charts.com/)
+
+[![](images/r-c.png)](https://r-charts.com/)
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+3.[R-bloggers](https://www.r-bloggers.com/)
+
+[![](images/p3.png)](https://www.r-bloggers.com/)
+:::
+
+::: {.column width="50%"}
+4.[STHDA](http://www.sthda.com/)
+
+[![](images/p4.png)](http://www.sthda.com/)
+:::
+:::
+
+# Thanks for you listening!
