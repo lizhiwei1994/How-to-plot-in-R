@@ -3,7 +3,7 @@
     "path": "E:/A/project/How to plot in R/theme/custom.scss",
     "project_path": "theme/custom.scss",
     "type": "scss",
-    "hash": "0",
+    "hash": "1078102716",
     "contents": "",
     "dirty": false,
     "created": 1661928489376.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "3,12",
+        "cursorPosition": "4,11",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1661928501,
+    "lastKnownWriteTime": 1661929049,
     "encoding": "CP936",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1661928501364,
+    "last_content_update": 1661929049020,
     "read_only": false,
     "read_only_alternatives": []
 }
