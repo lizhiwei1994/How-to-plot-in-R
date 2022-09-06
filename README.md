@@ -9,7 +9,7 @@
 代码存放在`examples/code/`文件夹下。数据存放在`examples/data/`文件夹下。
 在你打开下载的R project文件后，可以直接运行[examples](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/examples)中的代码，因为它使用的是相对路径。
 <details> 
-  <summary>Click me</summary> 
+  <summary>点我查看如何下载Repository</summary> 
 
 ![输入图片描述](README_md_files/9d42e100-2de5-11ed-b4d3-97b3c1e40752.jpeg?v=1&type=image)
 </details>
