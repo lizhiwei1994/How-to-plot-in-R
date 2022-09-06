@@ -15,7 +15,7 @@
 在PPT中，`Resources`部分展示的各种绘图教程等内容都是有超链接的。你可以在PPT中直接点击标题来访问对应的教程。
 
 ## 如何获得你汇报的PPT？
-在这个repo中，你可以下载[index.html](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.html "index.html")文件来获得我汇报用的PPT。这个PPT是使用[Rtudio](https://www.rstudio.com/)公司开发的[Quarto](https://quarto.org/)软件制作的。你可以查看[这个网页](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide)来了解更多用[Quarto](https://quarto.org/)制作PPT的内容。
+在这个repo中，你可以下载[index.html](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.html "index.html")文件来获得我汇报用的PPT，或者直接访问 [https://lizhiwei1994.github.io/](https://lizhiwei1994.github.io/)。这个PPT是使用[Rtudio](https://www.rstudio.com/)公司开发的[Quarto](https://quarto.org/)软件制作的。你可以查看[这个网页](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide)来了解更多用[Quarto](https://quarto.org/)制作PPT的内容。
 
 ## 如何重现你的PPT？
 你可以直接下载这个repo，然后在Rstudio中运行[index.qmd](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/main/index.qmd "index.qmd")文件来重现我的PPT。
