@@ -11,7 +11,7 @@
 <details> 
   <summary>Click me</summary> 
 
-这里边放内容；这里边放内容；这里边放内容；这里边放内容； 这里边放内容；这里边放内容；这里边放内容；这里边放内容；这里边放内容； 这里边放内容；这里边放内容；这里边放内容；
+![输入图片描述](README_md_files/9d42e100-2de5-11ed-b4d3-97b3c1e40752.jpeg?v=1&type=image)
 </details>
 
 2. 你也可以只下载[examples](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/examples)文件，但是你需要把代码中的读取数据所使用的地址改为你电脑上文件夹的地址。比如在[此行代码](https://github.com/lizhiwei1994/How-to-plot-in-R/blob/03dc7e4a7759311b5572ae7f9a219c11cf21399b/examples/code/01.Table_1.r#L7)中，我使用了`'examples/data/table1_data.csv'`。如果你把[examples](https://github.com/lizhiwei1994/How-to-plot-in-R/tree/main/examples)文件下载到了D盘，那你需要把`'examples/data/table1_data.csv'`改为`'D:/examples/data/table1_data.csv'`代码才能正常运行。
